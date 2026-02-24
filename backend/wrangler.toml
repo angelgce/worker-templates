@@ -13,18 +13,26 @@ head_sampling_rate = 1
 [ai]
 binding = "AI"
 
+[[kv_namespaces]]
+binding = "KV"
+id = "KV_NAMESPACE_ID"
+
 # Uncomment and configure as needed:
 
 # [[hyperdrive]]
 # binding = "HYPERDRIVE"
 # id = "your-hyperdrive-id"
 
-# [[kv_namespaces]]
-# binding = "KV"
-# id = "your-kv-id"
-
 [env.dev]
 name = "backend-dev"
 
+[env.dev.kv_namespaces]
+binding = "KV"
+id = "KV_DEV_NAMESPACE_ID"
+
 [env.production]
 name = "backend-prod"
+
+[env.production.kv_namespaces]
+binding = "KV"
+id = "KV_PROD_NAMESPACE_ID"

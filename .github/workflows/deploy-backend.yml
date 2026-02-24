@@ -55,6 +55,22 @@ jobs:
             echo "DATABASE_URL=${{ secrets.DATABASE_URL_DEV }}" >> $GITHUB_OUTPUT
           fi
 
+      - name: Create KV namespace (if not exists)
+        working-directory: backend
+        run: |
+          if [ "${{ github.ref_name }}" == "main" ]; then
+            KV_NAME="backend-prod-KV"
+          else
+            KV_NAME="backend-dev-KV"
+          fi
+          EXISTING=$(npx wrangler kv namespace list 2>/dev/null | grep -o "\"id\":\"[^\"]*\"" | head -1 | grep "$KV_NAME" || true)
+          if [ -z "$EXISTING" ]; then
+            npx wrangler kv namespace create KV ${{ steps.env.outputs.ENV_FLAG }} || true
+          fi
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
       - name: Deploy to Cloudflare Workers
         working-directory: backend
         run: npx wrangler deploy ${{ steps.env.outputs.ENV_FLAG }}

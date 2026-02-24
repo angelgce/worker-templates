@@ -32,8 +32,7 @@ Full-stack template for building applications on Cloudflare Workers with AI capa
 ├── .claude/
 │   ├── agents/               # Claude Code agents
 │   └── skills/               # Claude Code skills (40+)
-├── .github/workflows/        # CI/CD deploy pipelines
-└── docker-compose.yml        # Local dev (Postgres + Redis)
+└── .github/workflows/        # CI/CD deploy pipelines
 ```
 
 ## Getting Started
@@ -70,12 +69,6 @@ npm run dev:back
 
 # Start frontend (port 5173)
 npm run dev:front
-```
-
-Or use Docker for local services:
-
-```bash
-docker compose up -d postgres redis
 ```
 
 ### Database

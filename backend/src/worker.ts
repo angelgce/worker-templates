@@ -8,7 +8,8 @@ export type Env = {
   JWT_SECRET: string;
   FRONTEND_HOST: string;
   AI: Ai;
-  // Add more bindings here (KV, Hyperdrive, etc.)
+  KV: KVNamespace;
+  // Add more bindings here (Hyperdrive, R2, etc.)
 };
 
 const app = new Hono<{ Bindings: Env }>();
