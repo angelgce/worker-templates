@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "skills": {
+    "mobile-ios-design": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "computedHash": "ae24b6391b847147eb53b7f5447a403130353e21cbcd6620aca4a901593ef727"
+    },
+    "rivetkit-client-swiftui": {
+      "source": "rivet-dev/skills",
+      "sourceType": "github",
+      "computedHash": "886a74748abb8bfd8fe81840cd8868502385124ce893499bdb133ca5281ddad7"
+    },
+    "swift-concurrency": {
+      "source": "avdlee/swift-concurrency-agent-skill",
+      "sourceType": "github",
+      "computedHash": "8fa502234137073ae58bf51bd5d9900ba361edf0221cbd4de655eb4c405a601a"
+    },
+    "swiftui-expert-skill": {
+      "source": "avdlee/swiftui-agent-skill",
+      "sourceType": "github",
+      "computedHash": "b3443eb44c17b17d90dbb829f1c6f5c7dbc0dc5f283f4594b909c44105793187"
+    },
+    "swiftui-liquid-glass": {
+      "source": "dimillian/skills",
+      "sourceType": "github",
+      "computedHash": "61fd36ced5c674f38634f6f7c8c5299f8ffb3e637b7a9300463aba6c3a045249"
+    },
+    "swiftui-ui-patterns": {
+      "source": "dimillian/skills",
+      "sourceType": "github",
+      "computedHash": "b3d7f07b09544b1ca8033d0a86abea5fd0350cdba8081343f71f918d0d4fde03"
+    }
+  }
+}

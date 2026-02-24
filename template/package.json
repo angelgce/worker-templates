@@ -1,0 +1,10 @@
+{
+  "name": "project-template",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev:back": "cd backend && npm run dev",
+    "dev:front": "cd frontend && npm run dev",
+    "install:all": "cd backend && npm install && cd ../frontend && npm install"
+  }
+}

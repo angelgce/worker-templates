@@ -1,0 +1,30 @@
+name = "backend"
+main = "src/worker.ts"
+compatibility_date = "2024-11-01"
+
+[observability]
+enabled = true
+
+[observability.logs]
+enabled = true
+invocation_logs = true
+head_sampling_rate = 1
+
+[ai]
+binding = "AI"
+
+# Uncomment and configure as needed:
+
+# [[hyperdrive]]
+# binding = "HYPERDRIVE"
+# id = "your-hyperdrive-id"
+
+# [[kv_namespaces]]
+# binding = "KV"
+# id = "your-kv-id"
+
+[env.dev]
+name = "backend-dev"
+
+[env.production]
+name = "backend-prod"
