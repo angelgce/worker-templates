@@ -1,32 +1,30 @@
-# angelgce Worker Templates
+# Project Template
 
-## Overview
-This repo contains opinionated full-stack templates for Cloudflare Workers. The main template lives in `template/`.
-
-## Repo Structure
-- `template/` — The starter template (backend, frontend, CI/CD, Claude config)
-- `company/` — Internal projects (gitignored, not part of the template)
-
-## Template Stack
-- **Backend**: Hono + Cloudflare Workers + Drizzle ORM + Neon PostgreSQL + Workers AI
+## Stack
+- **Backend**: Hono + Cloudflare Workers + Drizzle ORM + Neon PostgreSQL
 - **Frontend**: React 18 + Vite + Redux Toolkit + Tailwind CSS + TypeScript
-- **CI/CD**: GitHub Actions → Cloudflare Pages & Workers
 
 ## Architecture
 
-### Backend: Routes → Services → Repositories
-- **Routes**: HTTP handlers + Zod validation. NO SQL, NO business logic.
-- **Services**: Business logic. NO SQL queries.
-- **Repositories**: SQL queries ONLY (Drizzle ORM).
-- Entry point: `template/backend/src/worker.ts`
-- DB schemas: `template/backend/src/database/drizzle-schema/*.schema.ts`
-- AI routes: `template/backend/src/ai/` (Workers AI with Llama 3.1)
+### Backend (Hono)
+- **Pattern**: Routes → Services → Repositories
+  - Routes: HTTP handlers + Zod validation. NO SQL, NO business logic.
+  - Services: Business logic. NO SQL queries.
+  - Repositories: SQL queries ONLY (Drizzle ORM).
+- Entry point: `backend/src/worker.ts`
+- DB schemas: `backend/src/database/drizzle-schema/*.schema.ts`
 
-### Frontend: Modular Feature Structure
-- `src/core/` — Shared state, hooks, API services
-- `src/modules/` — Feature-based modules
-- `src/shared/` — Reusable UI components
-- Component sections (in order): local state, Redux selectors, custom hooks, computed values, effects, event handlers, render helpers, main render
+### Frontend (React + Vite)
+- **Structure**: `src/core/` (shared), `src/modules/` (features), `src/shared/` (components)
+- **Component structure** (8 sections in order):
+  1. Local state
+  2. Redux selectors
+  3. Custom hooks
+  4. Computed values
+  5. Effects
+  6. Event handlers
+  7. Render helpers
+  8. Main render
 
 ### Responsive Design
 - 3 breakpoints ONLY: mobile (base), `tablet:` (768px), `desktop:` (1280px)
@@ -44,7 +42,6 @@ This repo contains opinionated full-stack templates for Cloudflare Workers. The 
 ## Rules
 - NEVER create files/services without explicit request
 - Use specialized agents for domain-specific tasks
-- NO gradients — use solid colors or rgba
+- NO gradients - use solid colors or rgba
 - Extract complex logic to custom hooks
 - Keep components focused and single-responsibility
-- All template changes go in `template/`, never in root
